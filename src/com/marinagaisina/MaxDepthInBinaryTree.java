@@ -33,7 +33,7 @@ public class MaxDepthInBinaryTree {
 //         * Write your code here
 //         * Function should return only one number - answer
 //         */
-//    }
+//
 }
 
 class BinarySearchTreeNode {
