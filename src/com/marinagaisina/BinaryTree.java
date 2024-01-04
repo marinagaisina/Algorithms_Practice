@@ -1,21 +1,11 @@
 package com.marinagaisina;
 
+import org.w3c.dom.Node;
+
 import java.util.*;
 import java.io.*;
 
-class Node {
-    Node left;
-    Node right;
-    int data;
-
-    Node(int data) {
-        this.data = data;
-        left = null;
-        right = null;
-    }
-}
-
-class BinaryTree {
+public class BinaryTree {
 
     public static void preOrder(Node root) {
         if (root == null) {
@@ -86,5 +76,17 @@ class BinaryTree {
         postOrder(root);
         System.out.println();
         System.out.println(height(root));
+    }
+
+    static class Node {
+        Node left;
+        Node right;
+        int data;
+
+        Node(int data) {
+            this.data = data;
+            left = null;
+            right = null;
+        }
     }
 }

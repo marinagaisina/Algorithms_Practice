@@ -34,64 +34,66 @@ public class MaxDepthInBinaryTree {
 //         * Function should return only one number - answer
 //         */
 //
-}
 
-class BinarySearchTreeNode {
-    public int data;
-    public BinarySearchTreeNode left;
-    public BinarySearchTreeNode right;
+    static class BinarySearchTreeNode {
+        public int data;
+        public BinarySearchTreeNode left;
+        public BinarySearchTreeNode right;
 
-    BinarySearchTreeNode (int nodeData) {
-        this.data = nodeData;
-        this.left = null;
-        this.right = null;
-    }
-}
-
-class BinarySearchTree {
-    public BinarySearchTreeNode root;
-
-    public BinarySearchTree() {
-        this.root = null;
+        BinarySearchTreeNode (int nodeData) {
+            this.data = nodeData;
+            this.left = null;
+            this.right = null;
+        }
     }
 
-    public void insertNode(int nodeData) {
-        this.root = this.insertNode(this.root, nodeData);
-    }
+    static class BinarySearchTree {
+        public BinarySearchTreeNode root;
 
-    private BinarySearchTreeNode insertNode(BinarySearchTreeNode root, int nodeData) {
-        if (root == null) {
-            root = new BinarySearchTreeNode(nodeData);
-        } else {
-            if (nodeData <= root.data) {
-                root.left = this.insertNode(root.left, nodeData);
+        public BinarySearchTree() {
+            this.root = null;
+        }
+
+        public void insertNode(int nodeData) {
+            this.root = this.insertNode(this.root, nodeData);
+        }
+
+        private BinarySearchTreeNode insertNode(BinarySearchTreeNode root, int nodeData) {
+            if (root == null) {
+                root = new BinarySearchTreeNode(nodeData);
             } else {
-                root.right = this.insertNode(root.right, nodeData);
+                if (nodeData <= root.data) {
+                    root.left = this.insertNode(root.left, nodeData);
+                } else {
+                    root.right = this.insertNode(root.right, nodeData);
+                }
             }
-        }
 
-        return root;
+            return root;
+        }
     }
-}
 
-class BinarySearchTreePrintHelper {
-    public static void printInorder(BinarySearchTreeNode root, String sep, BufferedWriter bufferedWriter) throws IOException {
-        if (root == null) {
-            return;
+    class BinarySearchTreePrintHelper {
+        public void printInorder(BinarySearchTreeNode root, String sep, BufferedWriter bufferedWriter) throws IOException {
+            if (root == null) {
+                return;
+            }
+
+            this.printInorder(root.left, sep, bufferedWriter);
+
+            if (root.left != null) {
+                bufferedWriter.write(sep);
+            }
+
+            bufferedWriter.write(String.valueOf(root.data));
+
+            if (root.right != null) {
+                bufferedWriter.write(sep);
+            }
+
+            this.printInorder(root.right, sep, bufferedWriter);
         }
-
-        BinarySearchTreePrintHelper.printInorder(root.left, sep, bufferedWriter);
-
-        if (root.left != null) {
-            bufferedWriter.write(sep);
-        }
-
-        bufferedWriter.write(String.valueOf(root.data));
-
-        if (root.right != null) {
-            bufferedWriter.write(sep);
-        }
-
-        BinarySearchTreePrintHelper.printInorder(root.right, sep, bufferedWriter);
     }
+
+
 }
