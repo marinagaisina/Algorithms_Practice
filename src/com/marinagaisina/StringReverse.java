@@ -1,8 +1,13 @@
 package com.marinagaisina;
 
 import javax.print.DocFlavor;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
 
 public class StringReverse {
     /*
@@ -44,23 +49,24 @@ public class StringReverse {
             s.set(i, s.get(s.size()-i-1));
             s.set(s.size()-i-1, temp);
         }
-        for (String str : s) {
-            System.out.print(str);
-        }
+        //for (String str : s) {
+        //    System.out.print(str);
+        //}
+        s.forEach(System.out::print);
         return s;
     }
 
-    public static void main(String[] args) {
-        /*
+    public static void main(String[] args) throws IOException {
+
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int string_len = Integer.parseInt(bufferedReader.readLine().trim());
+        //int string_len = Integer.parseInt(bufferedReader.readLine().trim());
 
         List<String> s_arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
             .collect(toList());
 
-        List<String> result = Result.reverseString(s_arr);
+        List<String> result = StringReverse.reverseString(s_arr);
 
         bufferedWriter.write(
             result.stream()
@@ -70,13 +76,14 @@ public class StringReverse {
 
         bufferedReader.close();
         bufferedWriter.close();
-         */
+        /*
         List<String> s = new ArrayList<>();
         s.add("h");
         s.add("e");
         s.add("l");
         s.add("l");
         s.add("o");
-        reverseString(s);
+        reverseString(s);*/
     }
+
 }

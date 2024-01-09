@@ -3,6 +3,8 @@ package com.marinagaisina;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.util.stream.Collectors.joining;
 /*
 A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at both ends in the binary representation of N.
 For example, number 9 has binary representation 1001 and contains a binary gap of length 2. The number 529 has binary representation 1000010001 and contains two binary gaps:
@@ -23,13 +25,14 @@ public class BinaryGap {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("OUTPUT_PATH"));
         String line;
+        int maxZero = 0;
         while ((line = bufferedReader.readLine()) != null) {
             try {
                 int intInput = Integer.parseInt(line);
                 String binaryStr = Integer.toBinaryString(intInput);
                 System.out.println(binaryStr);
                 char[] binaryArr = binaryStr.toCharArray();
-                int maxZero = 0;
+
                 int countZero = 0;
                 for (int i=1; i<binaryArr.length; i++) {
                     if (binaryArr[i] =='1') {
@@ -50,5 +53,9 @@ public class BinaryGap {
                 e.printStackTrace();
             }
         }
+        bufferedWriter.write("Max Binary Gap is: "+maxZero);
+
+        bufferedReader.close();
+        bufferedWriter.close();
     }
 }

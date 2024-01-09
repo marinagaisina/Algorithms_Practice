@@ -28,7 +28,7 @@ public class Staircase {
 //
 //        bufferedReader.close();
 
-        Staircase.staircase(5);
+        Staircase.staircase(15);
     }
     public static void staircase(int n) {
         for(int i=n-1; i>=0; i--) {

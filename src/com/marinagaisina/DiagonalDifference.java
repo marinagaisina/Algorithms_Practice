@@ -29,6 +29,12 @@ class DiagonalDifference {
                 throw new RuntimeException(ex);
             }
         });
+        System.out.println(arr.toString());
+        bufferedWriter.write(String.valueOf(DiagonalDifference.diagonalDifference(arr)));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
     }
 
 //-------------------------------------------------------------------------------------------------------------
@@ -45,13 +51,17 @@ class DiagonalDifference {
             for (int j=0; j<arr.get(i).size(); j++) {
                 if (i==j) {
                     primaryDiagonal += arr.get(i).get(j);
+
                 }
                 if (j==arr.get(i).size()-1-i) {
-                    System.out.println(arr.get(i).get(j));
+                    //System.out.println(arr.get(i).get(j));
                     secondaryDiagonal += arr.get(i).get(j);
+
                 }
             }
         }
+        System.out.println("Primary:\n"+primaryDiagonal);
+        System.out.println("Secondary:\n"+secondaryDiagonal);
         return Math.abs(primaryDiagonal-secondaryDiagonal);
     }
 }

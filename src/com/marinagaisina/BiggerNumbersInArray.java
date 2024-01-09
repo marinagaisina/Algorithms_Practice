@@ -57,10 +57,10 @@ public class BiggerNumbersInArray {
         return outputArr;
     }
     public static void main(String[] args) throws IOException {
-/*      BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int amount_of_numbers = Integer.parseInt(bufferedReader.readLine().trim());
+        //int amount_of_numbers = Integer.parseInt(bufferedReader.readLine().trim());
 
         List<Integer> numbers = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
                 .map(Integer::parseInt)
@@ -77,10 +77,10 @@ public class BiggerNumbersInArray {
 
         bufferedReader.close();
         bufferedWriter.close();
-    }   */
-        List<Integer> arr = new ArrayList<>();
+    //}
+/*        List<Integer> arr = new ArrayList<>();
         Collections.addAll(arr, 8, 1, 2, 2, 3);
         List<Integer> outputList = count(arr);
-        System.out.println(outputList);
+        System.out.println(outputList);*/
     }
 }
